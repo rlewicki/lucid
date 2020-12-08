@@ -9,7 +9,10 @@ namespace lucid::platform
         {
             SDL_GL_SetAttribute(SDL_GL_FRAMEBUFFER_SRGB_CAPABLE, 1);
         }
-        SDL_Window* window = SDL_CreateWindow(Definition.title, Definition.x, Definition.y, Definition.width, Definition.height,
+
+        const uint32_t WindowPosX = Definition.createCentered ? SDL_WINDOWPOS_CENTERED : Definition.x;
+        const uint32_t WindowPosY = Definition.createCentered ? SDL_WINDOWPOS_CENTERED : Definition.y;
+        SDL_Window* window = SDL_CreateWindow(Definition.title, WindowPosX, WindowPosY, Definition.width, Definition.height,
                                               SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI);
         SDL_GLContext context = SDL_GL_CreateContext(window);
 

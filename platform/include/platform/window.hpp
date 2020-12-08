@@ -10,6 +10,7 @@ namespace lucid::platform
         uint16_t x, y;
         uint16_t width, height;
         bool sRGBFramebuffer;
+        bool createCentered = true;
     };
 
     class Window
@@ -23,7 +24,7 @@ namespace lucid::platform
         virtual uint16_t GetWidth() const = 0;
         virtual uint16_t GetHeight() const = 0;
         virtual float GetAspectRatio() const = 0;
-        
+
         virtual void Show() = 0;
         virtual void Hide() = 0;
 
